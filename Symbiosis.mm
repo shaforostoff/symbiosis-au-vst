@@ -2564,7 +2564,8 @@ void SymbiosisComponent::createDefaultParameterMappingFile(const ::FSRef* fsRef)
 					|| (highValue = strtof(displayHigh, &e), e != &displayHigh[strlen(displayHigh)])
 					|| (midValue = strtof(displayMid, &e), e != &displayMid[strlen(displayMid)])
 					|| (avgValue = (lowValue + highValue) * 0.5f, midValue < avgValue - 0.0001f
-					|| midValue > avgValue + 0.0001f)) {
+					|| midValue > avgValue + 0.0001f)
+					|| lowValue >= highValue) {
 				if (vstGotSymbiosisExtensions) {
 					displayChar = '?';
 				} else {
